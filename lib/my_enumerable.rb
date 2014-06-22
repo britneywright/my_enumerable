@@ -40,12 +40,21 @@ module MyEnumerable
   end
 
   def min
-    smallest = self.first 
+    smallest = self.first
     self.each { |element|
       if element <= smallest
         smallest = element
       end
     }
-    self.count >= 1 ? smallest : nil
+    smallest
+  end
+
+  def include?(target)
+    self.each { |element|
+      if element == target
+        return true
+      end
+    }
+    return false
   end
 end

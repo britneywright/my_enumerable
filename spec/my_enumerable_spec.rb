@@ -47,8 +47,12 @@ describe "MyEnumerable" do
     expect(MyCollection.new([]).min).to eq nil
   end
 
+  specify "#include? returns true if specified element exists in the collection" do
+    expect(MyCollection.new(1..5).include?(1)).to eq true
+    expect(MyCollection.new(1..5).include?(10)).to eq false
+  end
+
   # -- implement me --
-  # include?
   # group_by
   # all?
   # min_by
