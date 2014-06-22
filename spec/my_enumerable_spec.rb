@@ -1,5 +1,8 @@
+require 'my_enumerable'
+
 describe "MyEnumerable" do
   class MyCollection
+    include MyEnumerable
     def initialize(ary)
       @ary = ary
     end
