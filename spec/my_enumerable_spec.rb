@@ -23,14 +23,19 @@ describe "MyEnumerable" do
     expect(MyCollection.new(1..10).find { false }).to eq nil
   end
 
-  specify "#select returns all elements for which the block is truthy" do
+  specify "#select returns an array of all elements for which the block is truthy" do
     expect(MyCollection.new(1..10).select {|element| element.even?}).to eq [2, 4, 6, 8, 10]
     expect(MyCollection.new(1..10).select {|element| element > 7 }).to eq [8, 9, 10]
     expect(MyCollection.new(1..10).select {|element| element < 1 }).to eq []
   end
+  
+  specify "#map returns an array of the block result for each element" do
+    expect(MyCollection.new(1..5).map {|element| element + 1 }).to eq [2, 3, 4, 5, 6]
+    expect(MyCollection.new(1..5).map {|element| element * 2 }).to eq [2, 4, 6, 8, 10]
+    expect(MyCollection.new([]).map {|element| element + 1 }).to eq []    
+  end
+
   # -- implement me --
-  # select
-  # map
   # group_by
   # first
   # all?

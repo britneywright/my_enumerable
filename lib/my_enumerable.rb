@@ -23,4 +23,12 @@ module MyEnumerable
     }
     ary
   end
+
+  def map
+    ary = []
+    self.each { |element|
+      ary << yield(element) 
+    }
+    ary
+  end
 end
