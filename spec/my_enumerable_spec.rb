@@ -41,12 +41,17 @@ describe "MyEnumerable" do
     expect(MyCollection.new([]).first).to eq nil
   end
 
+  specify "#min returns smallest element of the collection" do
+    expect(MyCollection.new(1..5).min).to eq 1
+    expect(MyCollection.new([20, 1, 5, 9]).min).to eq 1
+    expect(MyCollection.new([]).min).to eq nil
+  end
+
   # -- implement me --
+  # include?
   # group_by
   # all?
-  # min
   # min_by
-  # include?
   # take
 
   # -- extra credit --
