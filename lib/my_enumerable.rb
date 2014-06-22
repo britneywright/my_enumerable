@@ -13,4 +13,14 @@ module MyEnumerable
     }
     return nil
   end
+
+  def select
+    ary = []
+    self.each { |element|
+      if yield(element)
+        ary << element
+      end
+    }
+    ary
+  end
 end
