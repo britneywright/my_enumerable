@@ -31,4 +31,11 @@ module MyEnumerable
     }
     ary
   end
+
+  def first
+    self.each { |element|
+      return element
+    }
+    return nil
+  end
 end

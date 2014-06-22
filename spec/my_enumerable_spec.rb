@@ -35,9 +35,14 @@ describe "MyEnumerable" do
     expect(MyCollection.new([]).map {|element| element + 1 }).to eq []    
   end
 
+  specify "#first returns the first element of the collection" do
+    expect(MyCollection.new(1..5).first).to eq 1
+    expect(MyCollection.new([20, 1, 5, 9]).first).to eq 20
+    expect(MyCollection.new([]).first).to eq nil
+  end
+
   # -- implement me --
   # group_by
-  # first
   # all?
   # min
   # min_by
