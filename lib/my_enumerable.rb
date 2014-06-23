@@ -1,4 +1,5 @@
 module MyEnumerable
+
   def count
     count = 0
     self.each { count += 1 }
@@ -56,5 +57,17 @@ module MyEnumerable
       end
     }
     return false
+  end
+  
+  def min_by(&block)
+    smallest = yield(self.first)
+    value = self.first
+    self.each { |element|
+      if yield(element) < smallest
+        smallest = yield(element)
+        value = element
+      end
+    }
+    value
   end
 end

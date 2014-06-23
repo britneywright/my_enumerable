@@ -52,10 +52,16 @@ describe "MyEnumerable" do
     expect(MyCollection.new(1..5).include?(10)).to eq false
   end
 
+  specify "#min_by returns smallest value of the block" do
+    expect(MyCollection.new([[2, 5], [1, 3], [20, 5]]).min_by {|element| element[0]}).to eq [1, 3]
+    expect(MyCollection.new([[2, 5], [1, 30], [20, 5]]).min_by {|element| element[1]}).to eq [2, 5]
+    expect(MyCollection.new(["dog", "cat", "horse"]).min_by {|x| x.length }).to eq "dog"
+    expect(MyCollection.new([]).min_by {|x| x }).to eq nil
+  end
+  
   # -- implement me --
   # group_by
   # all?
-  # min_by
   # take
 
   # -- extra credit --
